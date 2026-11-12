@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <ctime>
 
 using string = std::string; // shortened std::string
 using costr = const std::string; // const string
@@ -152,6 +153,12 @@ class Console {
   }
 
   void clear() {
-    printf("\033[2J");
+    printf("\033[2J\033[H");
+    flush();
+  }
+  void randomcolour() {
+    srand(time(0));
+    std::cout << Colour::RGB(rand() % 256, rand() % 256, rand() % 256);
+    std::cout << Colour::BgRGB(rand() % 256, rand() % 256, rand() % 256);
   }
 };
