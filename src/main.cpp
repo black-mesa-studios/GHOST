@@ -1,39 +1,11 @@
 #include <cstdio>
 #include <iostream>
 #include <chrono>
-#include <thread>
 
 #include "../include/upl.hpp"
-#include "../include/input.hpp"
+#include "../include/game.hpp"
+#include "../include/misc.hpp"
 
-#define tsleep(x) std::this_thread::sleep_for(x)
-#define ms milliseconds
-
-namespace chrono = std::chrono;
-
-void loading_screen() {
-
-    tsleep(chrono::ms(1000));
-    std::cout << Colour::BgRGB(0, 0, 0) << Colour::RGB(255, 255, 255) << "Black" << Control::ColourReset;
-    fflush(stdout);
-
-    tsleep(chrono::ms(700));
-    std::cout << Colour::BgRGB(0, 0, 0) << Colour::RGB(220, 162, 110) << "Mesa" << Control::ColourReset;
-    fflush(stdout);
-
-    tsleep(chrono::ms(700));
-    std::cout << Colour::BgRGB(0, 0, 0) << Colour::RGB(255, 255, 255) << " Studios\n" << Control::ColourReset;
-    fflush(stdout);
-
-}
-
-void typing_animation(const std::string &text, int interval) {
-    for(const auto &ch : text) {
-        std::cout << ch;
-        fflush(stdout);
-        tsleep(chrono::ms(interval));
-    }
-}
 
 void startup(Console &con) {
     con.clear();
@@ -56,17 +28,7 @@ void startup(Console &con) {
 
     typing_animation("                 \n"
                     "                 \n", 40);
-
-}
-
-void gamestart(Console &con) {
-    std::cout << Colour::Green << Control::CursorShow;
-    fflush(stdout);
-    std::string input = "";
-    while(input != "exit") {
-        std::cout << " > ";
-        std::getline(std::cin, input);
-    }
+    con.clear();
 }
 
 int main() {

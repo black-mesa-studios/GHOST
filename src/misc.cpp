@@ -1,0 +1,30 @@
+#include <iostream>
+#include <chrono>
+
+#include "../include/misc.hpp"
+#include "../include/upl.hpp"
+
+
+void loading_screen() {
+
+    tsleep(chrono::ms(1000));
+    std::cout << Colour::BgRGB(0, 0, 0) << Colour::RGB(255, 255, 255) << "Black" << Control::ColourReset;
+    fflush(stdout);
+
+    tsleep(chrono::ms(700));
+    std::cout << Colour::BgRGB(0, 0, 0) << Colour::RGB(220, 162, 110) << "Mesa" << Control::ColourReset;
+    fflush(stdout);
+
+    tsleep(chrono::ms(700));
+    std::cout << Colour::BgRGB(0, 0, 0) << Colour::RGB(255, 255, 255) << " Studios\n" << Control::ColourReset;
+    fflush(stdout);
+
+}
+
+void typing_animation(const std::string &text, int interval) {
+    for(const auto &ch : text) {
+        std::cout << ch;
+        fflush(stdout);
+        tsleep(chrono::ms(interval));
+    }
+}

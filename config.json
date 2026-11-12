@@ -1,0 +1,9 @@
+{
+    "game": {
+        "last_objective": 0,
+        "objectives": [
+            "Introduction",
+            "Default Password"
+        ]
+    }
+}
