@@ -1,0 +1,3 @@
+build g++ -O2 -std=c++23 src/* -o build/GHOST
+setup mkdir -p build/
+clean rm -rf build/*
